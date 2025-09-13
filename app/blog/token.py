@@ -1,4 +1,4 @@
-from blog import schemas 
+from app.blog import schemas 
 from datetime import datetime, timedelta, timezone
 from jose import jwt, JWTError
 import os 

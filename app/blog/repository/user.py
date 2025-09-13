@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status 
-from blog import schemas, database, models
-from blog.hashing import Hash 
+from app.blog import schemas, database, models
+from app.blog.hashing import Hash 
 
 
 def create_user(db:Session,request:schemas.User):
