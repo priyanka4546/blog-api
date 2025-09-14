@@ -108,5 +108,8 @@ To deploy this API on [Render](https://render.com):
 
 ---
 
+## 🔗 Live Demo
+Check out the live API on [Render](https://blog-api-2h56.onrender.com/docs)
 
+---
 
