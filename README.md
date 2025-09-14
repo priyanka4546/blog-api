@@ -90,7 +90,7 @@ To deploy this API on [Render](https://render.com):
      ```
    - Set the **Start Command**:
      ```bash
-    fastapi run app/main.py --host 0.0.0.0 --port $PORT
+     fastapi run app/main.py --host 0.0.0.0 --port $PORT
      ```
 
 3. **Set Environment Variables** in the dashboard:
