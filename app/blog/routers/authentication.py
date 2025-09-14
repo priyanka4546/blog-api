@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from blog import schemas,database, models, token
-from blog.hashing import Hash
+from app.blog import schemas,database, models, token
+from app.blog.hashing import Hash
 from sqlalchemy.orm import Session
 from datetime import datetime, timedelta, timezone
 from fastapi.security import OAuth2PasswordRequestForm
