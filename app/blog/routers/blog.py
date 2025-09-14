@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, status,HTTPException
 from typing import List
-from app.blog  import schemas, database, oauth2
+from app.blog  import schemas, database, oauth2, models
 from sqlalchemy.orm import Session 
 from app.blog.repository import blog
 
@@ -21,8 +21,8 @@ def show(id:int, db:Session=Depends(get_db),get_current_user:schemas.User=Depend
    return blog.show(id,db)
 
 @router.post('/', status_code=status.HTTP_201_CREATED)
-def create(request: schemas.Blog,db:Session=Depends(get_db),get_current_user:schemas.User=Depends(oauth2.get_current_user)):
-   return blog.create(request, db)
+def create(request: schemas.Blog,db:Session=Depends(get_db),get_current_user:models.User=Depends(oauth2.get_current_user)):
+   return blog.create( db,request, get_current_user)
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT) 
 def destroy(id:int, db:Session=Depends(get_db),get_current_user:schemas.User=Depends(oauth2.get_current_user)):
@@ -30,4 +30,4 @@ def destroy(id:int, db:Session=Depends(get_db),get_current_user:schemas.User=Dep
 
 @router.put("/{id}", status_code=status.HTTP_202_ACCEPTED)
 def update(id:int,request:schemas.Blog, db:Session=Depends(get_db),get_current_user:schemas.User=Depends(oauth2.get_current_user)):
-    return blog.update(request,id,db)
+    return blog.update(id,db,request)
